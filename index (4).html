@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather Information Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Weather Dashboard</h1>
+      <p>Search any city for current conditions.</p>
+    </header>
+
+    <!-- Step 3: search box -->
+    <form id="searchForm" class="search" role="search">
+      <label for="cityInput" class="sr-only">City name</label>
+      <input type="text" id="cityInput" placeholder="Enter a city, e.g. Hyderabad" autocomplete="off" required>
+      <button type="submit" id="searchBtn">Search</button>
+    </form>
+
+    <div id="recent" class="recent" aria-label="Recent searches"></div>
+
+    <!-- Status messages: loading and errors (Step 8) -->
+    <p id="status" class="status" role="status" aria-live="polite" hidden></p>
+
+    <!-- Weather information panel (Step 7) -->
+    <section id="weather" class="weather" hidden>
+      <div class="weather-top">
+        <div>
+          <h2 id="place"></h2>
+          <p id="updated" class="muted"></p>
+          <p id="description" class="description"></p>
+        </div>
+        <img id="icon" alt="" width="100" height="100">
+      </div>
+
+      <div class="temp-row">
+        <p class="temp"><span id="temp">--</span><span id="unitLabel">°C</span></p>
+        <div class="unit-toggle" role="group" aria-label="Temperature unit">
+          <button type="button" data-unit="metric" class="active" aria-pressed="true">°C</button>
+          <button type="button" data-unit="imperial" aria-pressed="false">°F</button>
+        </div>
+      </div>
+
+      <dl class="stats">
+        <div><dt>Feels like</dt><dd id="feels">--</dd></div>
+        <div><dt>Humidity</dt><dd id="humidity">--</dd></div>
+        <div><dt>Wind speed</dt><dd id="wind">--</dd></div>
+        <div><dt>Pressure</dt><dd id="pressure">--</dd></div>
+      </dl>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
